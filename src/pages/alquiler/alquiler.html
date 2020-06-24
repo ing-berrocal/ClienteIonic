@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Alquiler</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <button ion-button color="light" (click)="itemAgregar($event)">Agregar</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3>
+        <ion-label>Fecha Inicial</ion-label>
+        <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fi"></ion-datetime>
+      </ion-col>
+      <ion-col col-3>                
+        <ion-label>Fecha Final</ion-label>
+        <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="ff"></ion-datetime>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button color="light" (click)="itemBuscar($event)">Buscar</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2>Fecha</ion-col>
+      <ion-col col-2>Cliente</ion-col>
+      <ion-col col-4>Titulo</ion-col>
+      <ion-col col-2>Fecha Entrega</ion-col>
+      <ion-col col-1>Estado</ion-col>
+      <ion-col col-1></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of items">
+      <ion-col ion-item col-2>{{item.fechaAlquiler}}</ion-col>
+      <ion-col ion-item col-2>{{item.cliente}}</ion-col>
+      <ion-col ion-item col-4>{{item.titulo}}</ion-col>
+      <ion-col ion-item col-2>{{item.fechaEntrega}}</ion-col>
+      <ion-col ion-item col-1>{{item.estado == 1 ? 'Espera' : 'Entregado'}}</ion-col>
+      <ion-col ion-item col-1>
+        <button  ion-button (click)="itemDetalle($event, item)">Detalle</button>
+      </ion-col>
+    </ion-row>    
+  </ion-grid>  
+</ion-content>

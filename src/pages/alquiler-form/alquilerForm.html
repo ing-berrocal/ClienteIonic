@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Alquiler - Formulario</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item>
+            <ion-label stacked>Cliente</ion-label>
+              <ion-select [(ngModel)]="form.cliente">
+                <ion-option *ngFor="let item of clientes" [value]="item.id">{{item.descripcion}}</ion-option>
+              </ion-select>            
+          </ion-item>        
+          <ion-item>
+            <ion-label stacked>Titulos</ion-label>
+              <ion-select [(ngModel)]="form.titulo">
+                <ion-option *ngFor="let item of titulos" [value]="item.id">{{item.descripcion}}</ion-option>
+              </ion-select>            
+          </ion-item>        
+          <ion-item>
+            <ion-label stacked>Dias</ion-label>
+            <ion-input type="number" [(ngModel)]="form.dias"></ion-input>
+          </ion-item>        
+          <ion-item>
+            <ion-label stacked>Observacion</ion-label>
+            <ion-input type="number" [(ngModel)]="form.observacion"></ion-input>
+          </ion-item>                                
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button *ngIf="!selectedItem.editar" ion-button color="secondary" (click)="itemAgregar($event)">Agregar</button>
+        <button *ngIf="selectedItem.editar" ion-button color="secondary" (click)="itemEditar($event)">Editar</button>
+        <button ion-button color="danger" (click)="itemCancelar($event)">Cancelar</button>        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
