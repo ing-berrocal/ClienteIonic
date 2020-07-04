@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 
+import { TituloDetailsPage } from '../alquiler-form/tituo-item-details';
 import { ClienteService } from '../../servicio/clienteServicio';
 import { TituloService } from '../../servicio/tituloServicio';
 import { AlquilerService } from '../../servicio/alquilerServicio';
@@ -51,7 +52,7 @@ export class AlquilerFormPage {
   itemAgregar(event) {    
     this.alquilerServicio.postAlquiler(this.form).subscribe((i)=>{        
         //this.headerProperty = i.headers.get('property name here');
-        this.showAlert();
+        this.showAlert('Alquiler agregado correctamente');
     },error=>{ 
       this.showAlert(error.error.message) 
   });    
@@ -65,10 +66,14 @@ export class AlquilerFormPage {
     this.navCtrl.pop();
   }
 
-  showAlert() {
+  seleccionarTitulo(){
+    this.navCtrl.push(TituloDetailsPage);
+  }
+
+  showAlert(mensaje:string) {
     const alert = this.alertCtrl.create({
       title: 'Alquiler!',
-      subTitle: 'Alquiler agregado',
+      subTitle: mensaje,
       buttons: [{
         text: 'OK',
         handler: data => {

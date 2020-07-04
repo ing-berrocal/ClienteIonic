@@ -17,6 +17,7 @@ import { TituloFormPage } from '../pages/titulo-form/tituloForm';
 import { AlquilerPage } from '../pages/alquiler/alquiler';
 import { AlquilerFormPage } from '../pages/alquiler-form/alquilerForm';
 import { AlquilerDetallePage } from '../pages/alquiler-detalle/alquiler-detalle';
+import { TituloDetailsPage } from '../pages/alquiler-form/tituo-item-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,7 +37,7 @@ import { HTTPInterceptor } from '../servicio/HttpInterceptor';
     ListPage,
     ClientePage,ClienteFormPage,
     TituloPage,TituloFormPage,
-    AlquilerPage,AlquilerFormPage,AlquilerDetallePage
+    AlquilerPage,AlquilerFormPage,AlquilerDetallePage,TituloDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,7 @@ import { HTTPInterceptor } from '../servicio/HttpInterceptor';
     ListPage,
     ClientePage,ClienteFormPage,
     TituloPage,TituloFormPage,
-    AlquilerPage,AlquilerFormPage,AlquilerDetallePage
+    AlquilerPage,AlquilerFormPage,AlquilerDetallePage,TituloDetailsPage
   ],
   providers: [
     StatusBar,

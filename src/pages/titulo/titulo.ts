@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
 import { NavController, NavParams } from 'ionic-angular';
-
-import { ItemDetailsPage } from '../item-details/item-details';
 import { TituloFormPage } from '../titulo-form/tituloForm';
 
 import { TituloService } from '../../servicio/tituloServicio';
@@ -17,7 +15,19 @@ export class TituloPage {
   busqueda:string = 't';
   consulta:string = '';
 
+  productores: Array<{id: number, descripcion: string}>;
+  plataformas: Array<{id: number, descripcion: string}>;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public tituloServicio:TituloService) {
+
+    this.tituloServicio.getProductor()
+    .subscribe(data=>{
+      this.productores = data;
+    })
+    this.tituloServicio.getPlataforma()
+    .subscribe(data=>{
+      this.plataformas = data;
+    })
 
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane','american-football', 'boat', 'bluetooth', 'build'];    
   }

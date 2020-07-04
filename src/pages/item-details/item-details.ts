@@ -32,6 +32,15 @@ export class ItemDetailsPage {
             });          
           })        
           break;
+
+          case '10':
+            this.reporteServicio.getReporte10().subscribe((d)=>{
+              d.forEach(i => {
+                this.items.push({nombre:(i.yinicio+' '+i.yfinal+' '+
+                i.vistaalquiler.nombre),cant:i.cantidad})
+              });          
+            })        
+            break;
     }
   }
 }

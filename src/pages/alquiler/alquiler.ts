@@ -19,10 +19,9 @@ export class AlquilerPage {
   fi:string = '';
   ff:string = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alquilerServicio:AlquilerService) {    
-
-    this.fi = moment().format('YYYY-MM-DD')
-    this.ff = moment().format('YYYY-MM-DD')    
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alquilerServicio:AlquilerService) {        
+    this.fi = moment().startOf('month').format('YYYY-MM-DD')
+    this.ff = moment().endOf('month').format('YYYY-MM-DD')    
   }
 
   ionViewWillEnter()    { 

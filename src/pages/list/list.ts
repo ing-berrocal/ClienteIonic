@@ -20,15 +20,21 @@ export class ListPage {
     //for(let i = 1; i < 11; i++)
       this.items.push({
         title: 'Reporte cliente',
-        note: 'This is item 1',
+        note: 'Prestamos por clientes',
         icon: this.icons[Math.floor(Math.random() * this.icons.length)],
         url: 'cliente'
       },
       {
         title: 'Reporte título',
-        note: 'This is item 2',
+        note: 'Prestamos por títulos',
         icon: this.icons[Math.floor(Math.random() * this.icons.length)],
         url: 'titulo'
+      },
+      {
+        title: 'Reporte por año',
+        note: 'Prestamos por cada 10 años',
+        icon: this.icons[Math.floor(Math.random() * this.icons.length)],
+        url: '10'
       });
     
   }

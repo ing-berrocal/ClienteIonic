@@ -33,19 +33,13 @@
         <ion-item *ngIf="busqueda == 'pr'">
           <ion-label>Busqueda</ion-label>
           <ion-select [(ngModel)]="consulta">
-            <ion-option value="1">1</ion-option>
-            <ion-option value="2">2</ion-option>
-            <ion-option value="3">3</ion-option>
-            <ion-option value="4">4</ion-option>
-            <ion-option value="5">5</ion-option>
+            <ion-option *ngFor="let productor of productores" value="{{productor.id}}">{{productor.descripcion}}</ion-option>                
           </ion-select>
         </ion-item>
         <ion-item *ngIf="busqueda == 'pl'">
           <ion-label>Consola</ion-label>
           <ion-select [(ngModel)]="consulta">
-            <ion-option value="1">PS</ion-option>
-            <ion-option value="2">XBox</ion-option>
-            <ion-option value="3">Nintendo</ion-option>            
+            <ion-option *ngFor="let plataforma of plataformas" value="{{plataforma.id}}">{{plataforma.descripcion}}</ion-option>                
           </ion-select>
         </ion-item>
       </ion-col>
