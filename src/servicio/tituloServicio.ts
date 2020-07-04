@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class TituloService {
@@ -7,6 +8,14 @@ export class TituloService {
   constructor(
     private http: HttpClient
   ) {}
+
+  getPlataforma() : Observable<any> {
+    return this.http.get('http://127.0.0.1:8080/titulo/plataforma');
+  }  
+
+  getProductor() : Observable<any>{
+    return this.http.get('http://127.0.0.1:8080/titulo/producto');
+  }  
 
   getT():any {
     return this.http.get('http://127.0.0.1:8080/titulo');

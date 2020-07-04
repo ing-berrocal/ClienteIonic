@@ -12,42 +12,40 @@
     <ion-row>
       <ion-col col-12>
         <ion-list>
+          <form [formGroup]="form">
           <ion-item>
             <ion-label stacked>Nombre</ion-label>
-            <ion-input type="text" [(ngModel)]="form.nombre"></ion-input>
+            <ion-input type="text" formControlName="nombre"></ion-input>
           </ion-item>        
           <ion-item>
             <ion-label stacked>Protagonista</ion-label>
-            <ion-input type="text" [(ngModel)]="form.protagonista"></ion-input>
+            <ion-input type="text" formControlName="protagonista"></ion-input>
           </ion-item>        
           <ion-item>
             <ion-label stacked>Director</ion-label>
-            <ion-input type="text" [(ngModel)]="form.director"></ion-input>
+            <ion-input type="text" formControlName="director"></ion-input>
           </ion-item>        
           <ion-item>
             <ion-label stacked>Inventario</ion-label>
-            <ion-input type="number" [(ngModel)]="form.inventario"></ion-input>
+            <ion-input type="number" formControlName="inventario"></ion-input>
           </ion-item>  
           <ion-item>
             <ion-label stacked>Valor Alquiler</ion-label>
-            <ion-input type="number" [(ngModel)]="form.valoralquiler"></ion-input>
+            <ion-input type="number" formControlName="valoralquiler"></ion-input>
           </ion-item>        
           <ion-item>            
               <ion-label stacked>Plataforma</ion-label>
-              <ion-select [(ngModel)]="form.plataforma">
-                <ion-option value="1">PS</ion-option>
-                <ion-option value="2">XBox</ion-option>
-                <ion-option value="3">Nintendo</ion-option>            
+              <ion-select formControlName="plataforma">
+                <ion-option *ngFor="let plataforma of plataformas" value="{{plataforma.id}}">{{plataforma.descripcion}}</ion-option>                
               </ion-select>            
           </ion-item>                  
           <ion-item>            
               <ion-label stacked>Productor</ion-label>
-              <ion-select [(ngModel)]="form.productor">
-                <ion-option value="1">1</ion-option>
-                <ion-option value="2">2</ion-option>
-                <ion-option value="3">3</ion-option>            
+              <ion-select formControlName="productor">
+                <ion-option *ngFor="let productor of productores" value="{{productor.id}}">{{productor.descripcion}}</ion-option>                
               </ion-select>            
           </ion-item>                  
+        </form>
         </ion-list>
       </ion-col>
     </ion-row>

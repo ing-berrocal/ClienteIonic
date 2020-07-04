@@ -24,6 +24,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ClienteService } from '../servicio/clienteServicio';
 import { TituloService } from '../servicio/tituloServicio';
 import { AlquilerService } from '../servicio/alquilerServicio';
+import { ReporteService } from '../servicio/reporteServicio';
 
 import { HTTPInterceptor } from '../servicio/HttpInterceptor';
 
@@ -56,6 +57,7 @@ import { HTTPInterceptor } from '../servicio/HttpInterceptor';
     StatusBar,
     SplashScreen,
     ClienteService,TituloService,AlquilerService,
+    ReporteService,
     { provide: HTTP_INTERCEPTORS, useClass: HTTPInterceptor, multi: true },
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

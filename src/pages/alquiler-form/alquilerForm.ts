@@ -52,7 +52,9 @@ export class AlquilerFormPage {
     this.alquilerServicio.postAlquiler(this.form).subscribe((i)=>{        
         //this.headerProperty = i.headers.get('property name here');
         this.showAlert();
-    });    
+    },error=>{ 
+      this.showAlert(error.error.message) 
+  });    
   }
 
   itemEditar(event) {    
@@ -65,8 +67,8 @@ export class AlquilerFormPage {
 
   showAlert() {
     const alert = this.alertCtrl.create({
-      title: 'New Friend!',
-      subTitle: 'Your friend, Obi wan Kenobi, just accepted your friend request!',
+      title: 'Alquiler!',
+      subTitle: 'Alquiler agregado',
       buttons: [{
         text: 'OK',
         handler: data => {
