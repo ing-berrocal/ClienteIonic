@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {getURL} from './configuracion';
 
 @Injectable()
 export class ReporteService {
@@ -9,14 +10,14 @@ export class ReporteService {
   ) {}
 
   getReporteCliente():any {
-    return this.http.get('http://localhost:8080/reporte/cliente');
+    return this.http.get(getURL('{URL}/reporte/cliente'));
   }  
 
   getReporteTitulo():any {
-    return this.http.get('http://localhost:8080/reporte/titulo');
+    return this.http.get(getURL('{URL}/reporte/titulo'));
   }    
 
   getReporte10():any {
-    return this.http.get('http://localhost:8080/reporte/reporte10');
+    return this.http.get(getURL('{URL}/reporte/reporte10'));
   }    
 }

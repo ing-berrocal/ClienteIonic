@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {getURL} from './configuracion';
 
 @Injectable()
 export class AlquilerService {
@@ -9,10 +10,10 @@ export class AlquilerService {
   ) {}
 
   getPlataforma() {
-    return this.http.get('http://127.0.0.1:8080/alquiler/plataforma');
+    return this.http.get(getURL('{URL}/alquiler/plataforma'));
   }  
 
   getProducto() {
-    return this.http.get('http://127.0.0.1:8080/alquiler/producto');
+    return this.http.get(getURL('{URL}/alquiler/producto'));
   }  
 }

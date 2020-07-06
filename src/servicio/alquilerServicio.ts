@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {getURL} from './configuracion';
 
 @Injectable()
 export class AlquilerService {
@@ -10,18 +11,18 @@ export class AlquilerService {
   ) {}  
 
   getAlquil():Observable<any> {
-    return this.http.get('http://127.0.0.1:8080/alquiler');
+    return this.http.get(getURL('{URL}/alquiler'));
   }  
 
   getAlquiler(fechaInicial:string,fechaFinal:string):Observable<any> {
-    return this.http.get('http://127.0.0.1:8080/alquiler/fecha?fechaInicial={fi}&fechaFinal={ff}'.replace('{fi}',fechaInicial).replace('{ff}',fechaFinal));
+    return this.http.get(getURL('{URL}/alquiler/fecha?fechaInicial={fi}&fechaFinal={ff}').replace('{fi}',fechaInicial).replace('{ff}',fechaFinal));
   }  
 
   postAlquiler(alquiler:any):Observable<any>{
-    return this.http.post('http://127.0.0.1:8080/alquiler',alquiler);
+    return this.http.post(getURL('{URL}/alquiler'),alquiler);
   }
 
   putAlquiler(id:string):Observable<any> {
-    return this.http.put('http://127.0.0.1:8080/alquiler/{id}'.replace('{id}',id),{});
+    return this.http.put(getURL('{URL}/alquiler/{id}').replace('{id}',id),{});
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {getURL} from './configuracion';
 
 @Injectable()
 export class TituloService {
@@ -10,32 +11,32 @@ export class TituloService {
   ) {}
 
   getPlataforma() : Observable<any> {
-    return this.http.get('http://127.0.0.1:8080/titulo/plataforma');
+    return this.http.get(getURL('{URL}/titulo/plataforma'));
   }  
 
   getProductor() : Observable<any>{
-    return this.http.get('http://127.0.0.1:8080/titulo/producto');
+    return this.http.get(getURL('{URL}/titulo/producto'));
   }  
 
   getT():any {
-    return this.http.get('http://127.0.0.1:8080/titulo');
-    //return this.http.get('http://127.0.0.1:8080/titulo'.replace('{param}',parametro).replace('{valor}',valor));
+    return this.http.get(getURL('{URL}/titulo'));
+    //return this.http.get('{URL}/titulo'.replace('{param}',parametro).replace('{valor}',valor));
   }  
 
   getTitulos(parametro:string,valor:string) :any{
-    return this.http.get('http://127.0.0.1:8080/titulo?parametro={param}&valor={valor}'.replace('{param}',parametro).replace('{valor}',valor));
-    //return this.http.get('http://127.0.0.1:8080/titulo'.replace('{param}',parametro).replace('{valor}',valor));
+    return this.http.get(getURL('{URL}/titulo?parametro={param}&valor={valor}').replace('{param}',parametro).replace('{valor}',valor));
+    //return this.http.get('{URL}/titulo'.replace('{param}',parametro).replace('{valor}',valor));
   }  
   
   getTitulo(parametro:string) :any {
-    return this.http.get('http://127.0.0.1:8080/titulo/{id}'.replace('{id}',parametro));    
+    return this.http.get(getURL('{URL}/titulo/{id}').replace('{id}',parametro));    
   }  
 
   postTitulo(titulo:any) :any {
-    return this.http.post('http://127.0.0.1:8080/titulo',titulo);
+    return this.http.post(getURL('{URL}/titulo'),titulo);
   }
 
   putTitulo(titulo:any) :any {
-    return this.http.put('http://127.0.0.1:8080/titulo',titulo);
+    return this.http.put('{URL}/titulo',titulo);
   }
 }
